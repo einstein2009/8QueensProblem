@@ -3,14 +3,27 @@
 #pragma once
 
 
-ChessBoard::ChessBoard()
+//Rodel Aragon
+template<class ItemType>
+ChessBoard<ItemType>::ChessBoard()
 {
-}
+	miNumberOfQueens = 0;
 
+	mparrstrChessBoard = new string*[8];
 
-ChessBoard::~ChessBoard()
+	for (int i = 0; i < 8; i++)
+		mparrstrChessBoard[i] = new string[8];
+}//end constructor
+
+//Rodel Aragon
+template<class ItemType>
+ChessBoard<ItemType>::~ChessBoard()
 {
-}
+	for (int i = 0; i < 8; i++)
+		delete[] mparrstrChessBoard[i];
+
+	delete[] mparrstrChessBoard;
+}//end destructor
 
 bool ChessBoard::placeQueens(Queen* queenPtr)
 {
