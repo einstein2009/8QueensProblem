@@ -46,6 +46,7 @@ public:
 
 	/** Saves a pointer to the board for all queens. */
 	static void setBoard(const ChessBoard* bPtr);
+
 }; // end Queen
 #include "Queen.cpp"
 #endif _QUEEN

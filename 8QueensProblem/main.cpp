@@ -5,10 +5,10 @@
 *                 Nicholas Ackors, Stephen Hall            *
 *  Course:        CS322 Data Structure and Algorithms II   *
 *  Assignment:    Module 7, Written Assignment             *
-*  Program:       8 Queens problem		           *
+*  Program:       8 Queens problem						   *
 *  Description:   Creates a chessboard populated with 8	   *
-*		  queens in such a manor that no queen can *
-*		  attack another.                          *
+*				  queens in such a manor that no queen can *
+*				  attack another.                          *
 *  Input:         Takes no input, simply displays options. *
 *  Output:        Displays a simulated chessboard with the *
 *                 location of all eight queens.            *
@@ -23,9 +23,9 @@ using namespace std;
 
 int main()
 {
-	ChessBoard<string> *CpChessBoardPtr = new ChessBoard<string>;
+	ChessBoard *CpChessBoardPtr = new ChessBoard;
 	
-	CpChessBoardPtr->placeEightQueens();
+	CpChessBoardPtr->doEightQueens();
 	CpChessBoardPtr->display();
 	
 	//clears buffer and terminates program on next input
