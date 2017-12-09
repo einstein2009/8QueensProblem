@@ -4,7 +4,6 @@
 
 
 //Rodel Aragon
-template<class ItemType>
 ChessBoard<ItemType>::ChessBoard()
 {
 	miNumberOfQueens = 0;
@@ -16,7 +15,6 @@ ChessBoard<ItemType>::ChessBoard()
 }//end constructor
 
 //Rodel Aragon
-template<class ItemType>
 ChessBoard<ItemType>::~ChessBoard()
 {
 	for (int i = 0; i < 8; i++)
