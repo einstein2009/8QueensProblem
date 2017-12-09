@@ -4,7 +4,7 @@
 
 
 //Rodel Aragon
-ChessBoard<ItemType>::ChessBoard()
+ChessBoard::ChessBoard()
 {
 	miNumberOfQueens = 0;
 
@@ -15,7 +15,7 @@ ChessBoard<ItemType>::ChessBoard()
 }//end constructor
 
 //Rodel Aragon
-ChessBoard<ItemType>::~ChessBoard()
+ChessBoard::~ChessBoard()
 {
 	for (int i = 0; i < 8; i++)
 		delete[] mparrstrChessBoard[i];
