@@ -1,4 +1,5 @@
 #include "ChessBoard.h"
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -32,20 +33,6 @@ ChessBoard::~ChessBoard()
 	miNumberOfQueens = 0;
 }// end destructor
 
-void ChessBoard::clear()
-{
-}
-
-int ChessBoard::getNumQueens() const
-{
-	return queens.size();
-}
-
-const Queen * ChessBoard::getQueen(int index) const
-{
-	return queens[index];
-}
-
 //Rodel Aragon
 void ChessBoard::print() const
 {
@@ -68,15 +55,51 @@ void ChessBoard::print() const
 	}
 }
 
-void ChessBoard::doEightQueens()
+bool ChessBoard::addQueen(int index1, int index2)
 {
+	return false;
 }
 
-bool ChessBoard::isQueen(int inRow, int inCol) const
+bool ChessBoard::removeQueen(int index1, int index2)
 {
-	return (queens[inRow, inCol] != nullptr);
+	return false;
 }
 
+//Chandler Snoddy
+bool ChessBoard::createHorizontalAttackPath(int index1, int index2)
+{
+	return false;
+}
+//Chandler Snoddy 
+bool ChessBoard::removeHorizontalAttackPath(int index1, int index2)
+{
+	return false;
+}
+
+//Nick Ackors
+bool ChessBoard::createVerticalAttackPath(int index1, int index2)
+{
+	return false;
+}
+//Nick Ackors
+bool ChessBoard::removeVerticalAttackPath(int index1, int index2)
+{
+	return false;
+}
+
+//Colby Abrahamoff
+bool ChessBoard::createDiagonalAttackPath(int index1, int index2)
+{
+	return false;
+}
+//Colby Abrahamoff
+bool ChessBoard::removeDiagonalAttackPath(int index1, int index2)
+{
+	return false;
+}
+
+
+//Rodel Aragon
 void ChessBoard::placeEightQueens()
 {
 	int iRow;
@@ -271,8 +294,4 @@ void ChessBoard::placeEightQueens()
 			break;
 		}
 	} while (miNumberOfQueens != 8);
-}
-
-void ChessBoard::removeQueen()
-{
 }
