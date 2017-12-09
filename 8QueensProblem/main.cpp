@@ -21,9 +21,10 @@
 
 using namespace std;
 
+//Rodel Aragon
 int main()
 {
-	ChessBoard<string> *CpChessBoardPtr = new ChessBoard<string>;
+	ChessBoard *CpChessBoardPtr = new ChessBoard;
 	
 	CpChessBoardPtr->placeEightQueens();
 	CpChessBoardPtr->display();
