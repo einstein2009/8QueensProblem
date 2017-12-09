@@ -4,11 +4,14 @@
 
 Queen::Queen()
 {
+	row = 0;
+	col = 0;
 }
 
-
-Queen::~Queen()
+Queen::Queen(int inRow, int inCol)
 {
+	row = inRow;
+	col = inCol;
 }
 
 int Queen::getCol() const

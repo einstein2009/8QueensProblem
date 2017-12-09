@@ -1,6 +1,4 @@
 #include "ChessBoard.h"
-
-#include "ChessBoard.h"
 #include <string>
 
 using namespace std;

@@ -24,9 +24,6 @@ public:
 	/** Places a queen in upper-left corner of board. */
 	Queen();
 
-	// Deconstructor
-	~Queen();
-
 	/** Places a queen in supplied location. */
 	Queen(int inRow, int inCol);
 
@@ -35,17 +32,6 @@ public:
 
 	/** @return Row number. */
 	int getRow() const;
-
-	/** Moves queen to next row. */
-	void nextRow();
-
-	/** Sees whether the queen is under attack by another queen.
-	@return  True if another queen is in the same row or the same
-	diagonal; otherwise, returns false. */
-	bool isUnderAttack() const;
-
-	/** Saves a pointer to the board for all queens. */
-	static void setBoard(const ChessBoard* bPtr);
 
 }; // end Queen
 #include "Queen.cpp"
