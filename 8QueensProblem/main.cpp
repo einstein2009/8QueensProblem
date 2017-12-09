@@ -26,7 +26,7 @@ int main()
 {
 	ChessBoard *CpChessBoardPtr = new ChessBoard;
 	
-	CpChessBoardPtr->doEightQueens();
+	CpChessBoardPtr->placeEightQueens();
 	CpChessBoardPtr->print();
 	
 	//clears buffer and terminates program on next input
