@@ -21,6 +21,7 @@
 
 using namespace std;
 
+//Rodel Aragon
 int main()
 {
 	ChessBoard *CpChessBoardPtr = new ChessBoard;

@@ -1,6 +1,38 @@
 #include "ChessBoard.h"
 
-#pragma once
+#include "ChessBoard.h"
+#include <string>
+
+using namespace std;
+
+//Rodel Aragon
+ChessBoard::ChessBoard()
+{
+	miNumberOfQueens = 0;
+
+	//creates dynamic 2D array
+	mparrstrChessBoard = new string*[8];
+	for (int i = 0; i < 8; i++)
+		mparrstrChessBoard[i] = new string[8];
+
+	//initialize array elements to empty.
+	for (int iRow = 0; iRow < 8; iRow++)
+		for (int iColumn = 0; iColumn < 8; iColumn++)
+			mparrstrChessBoard[iRow][iColumn] = "";
+
+}// end constructor
+
+//Rodel Aragon
+ChessBoard::~ChessBoard()
+{
+	//deallocate 2D array
+	for (int i = 0; i < 8; i++)
+		delete[] mparrstrChessBoard[i];
+
+	delete[] mparrstrChessBoard;
+
+	miNumberOfQueens = 0;
+}// end destructor
 
 bool ChessBoard::placeQueens(Queen* queenPtr)
 {
