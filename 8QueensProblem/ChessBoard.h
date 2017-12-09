@@ -41,7 +41,7 @@ public:
 	void clear();
 
 	/** Displays board. */
-	void display() const;
+	void print() const;
 
 	/** Initiates the Eight Queens problem. */
 	void doEightQueens();

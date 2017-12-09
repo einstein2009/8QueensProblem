@@ -27,7 +27,7 @@ int main()
 	ChessBoard *CpChessBoardPtr = new ChessBoard;
 	
 	CpChessBoardPtr->doEightQueens();
-	CpChessBoardPtr->display();
+	CpChessBoardPtr->print();
 	
 	//clears buffer and terminates program on next input
 	cout << "Terminating program... press any key to exit.";

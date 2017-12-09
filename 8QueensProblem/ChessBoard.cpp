@@ -30,12 +30,21 @@ ChessBoard::~ChessBoard()
 	delete[] mparrstrChessBoard;
 
 	miNumberOfQueens = 0;
+}// end destructor
+
+void ChessBoard::clear()
+{
 }
+
 int ChessBoard::getNumQueens() const
 {
 	return queens.size();
 }
-// end destructor
+
+const Queen * ChessBoard::getQueen(int index) const
+{
+	return queens[index];
+}
 
 //Rodel Aragon
 void ChessBoard::print() const
@@ -57,6 +66,15 @@ void ChessBoard::print() const
 
 		cout << endl;
 	}
+}
+
+void ChessBoard::doEightQueens()
+{
+}
+
+bool ChessBoard::isQueen(int inRow, int inCol) const
+{
+	return (queens[inRow, inCol] != nullptr);
 }
 
 bool ChessBoard::placeQueens(Queen* queenPtr)
@@ -97,3 +115,7 @@ bool ChessBoard::placeQueens(Queen* queenPtr)
 
 	return isQueenPlaced;
 }  // end placeQueens
+
+void ChessBoard::removeQueen()
+{
+}
