@@ -4,7 +4,7 @@
 /** Listing 5-2.
 @file Queen.h */
 
-
+#pragma once
 #ifndef _QUEEN
 #define _QUEEN
 
@@ -45,8 +45,7 @@ public:
 	bool isUnderAttack() const;
 
 	/** Saves a pointer to the board for all queens. */
-	static void setBoard(const Board* bPtr);
+	static void setBoard(const ChessBoard* bPtr);
 }; // end Queen
-
 #include "Queen.cpp"
-#endif
+#endif _QUEEN

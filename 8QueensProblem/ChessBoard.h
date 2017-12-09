@@ -3,8 +3,9 @@
 
 /** Listing 5-1.
 @file Board.h */
-#ifndef BOARD
-#define BOARD
+#pragma once
+#ifndef _BOARD
+#define _BOARD
 
 #include "Queen.h"
 #include <vector>
@@ -56,4 +57,4 @@ public:
 }; // end Board
 
 #include "ChessBoard.cpp"
-#endif
+#endif _BOARD

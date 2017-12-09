@@ -1,5 +1,6 @@
 #include "ChessBoard.h"
 
+#pragma once
 
 
 ChessBoard::ChessBoard()
@@ -10,7 +11,6 @@ ChessBoard::ChessBoard()
 ChessBoard::~ChessBoard()
 {
 }
-
 
 bool ChessBoard::placeQueens(Queen* queenPtr)
 {
