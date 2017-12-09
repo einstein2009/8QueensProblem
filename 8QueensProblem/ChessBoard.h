@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//Rodel Aragon
 class ChessBoard
 {
 public:
