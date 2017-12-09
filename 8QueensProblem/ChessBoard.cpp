@@ -37,6 +37,28 @@ int ChessBoard::getNumQueens() const
 }
 // end destructor
 
+//Rodel Aragon
+void ChessBoard::print() const
+{
+	string strArrayElement;
+
+	for (int iRow = 0; iRow < 8; iRow++)
+	{
+		for (int iColumn = 0; iColumn < 8; iColumn++)
+		{
+			strArrayElement = mparrstrChessBoard[iRow][iColumn];
+
+			//if array element is a queen
+			if (strArrayElement[0] == 'Q')
+				cout << "[" << strArrayElement << "]";
+			else // array element is not queen
+				cout << "[  ]";
+		}
+
+		cout << endl;
+	}
+}
+
 bool ChessBoard::placeQueens(Queen* queenPtr)
 {
 	// Base case: Try to place a queen in a nonexistent column.
