@@ -21,7 +21,7 @@ class ChessBoard
 private:
 	vector<Queen*> queens; // Array of pointers to queens on the board
 
-						   /** Sees whether a queen exists in position (inRow, inCol). */
+	/** Sees whether a queen exists in position (inRow, inCol). */
 	bool isQueen(int inRow, int inCol) const;
 
 	/** Attempts to place queens on board, starting with the designated queen. */
@@ -29,9 +29,6 @@ private:
 
 	/** Removes the last queen from the board, but does not deallocate it. */
 	void removeQueen();
-
-	/** Places a queen on the board. */
-	void setQueen(const Queen* queenPtr);
 
 public:
 	/** Supplies the Queen class with a pointer to the board. */

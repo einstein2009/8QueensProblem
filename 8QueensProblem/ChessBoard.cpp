@@ -30,7 +30,12 @@ ChessBoard::~ChessBoard()
 	delete[] mparrstrChessBoard;
 
 	miNumberOfQueens = 0;
-}// end destructor
+}
+int ChessBoard::getNumQueens() const
+{
+	return queens.size();
+}
+// end destructor
 
 bool ChessBoard::placeQueens(Queen* queenPtr)
 {
