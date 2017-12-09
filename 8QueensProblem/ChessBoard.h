@@ -1,60 +1,94 @@
-//  Created by Frank M. Carrano and Tim Henry.
-//  Copyright (c) 2013 __Pearson Education__. All rights reserved.
+//ChessBoard.h -- ADT for ChessBoard
 
-/** Listing 5-1.
-@file Board.h */
-#pragma once
-#ifndef _BOARD
-#define _BOARD
+#include <string>
 
-#include "Queen.h"
-#include <vector>
-#include <cassert>
-#include <iostream>
-
-using namespace std;
-
-static const int BOARD_SIZE = 8;
-
+template<class ItemType>
 class ChessBoard
 {
-private:
-	vector<Queen*> queens; // Array of pointers to queens on the board
-
-						   /** Sees whether a queen exists in position (inRow, inCol). */
-	bool isQueen(int inRow, int inCol) const;
-
-	/** Attempts to place queens on board, starting with the designated queen. */
-	bool placeQueens(Queen* queenPtr);
-
-	/** Removes the last queen from the board, but does not deallocate it. */
-	void removeQueen();
-
-	/** Places a queen on the board. */
-	void setQueen(const Queen* queenPtr);
-
 public:
-	/** Supplies the Queen class with a pointer to the board. */
 	ChessBoard();
-
-	/** Clears the board and removes pointer from queens. */
 	~ChessBoard();
 
-	/** Clears board. */
-	void clear();
+	/*Function to place eight queens on the chessboard that cannot attack one another
+	Precondition: None
+	Postcondition: The queens are placed in the array mparrstrChessBoard */
+	void placeEightQueens();
 
-	/** Displays board. */
-	void display() const;
+	/* Function to print 2D array with placement of queens.
+	Precondition: function placeEightQueens() has been called. */
+	void print() const;
 
-	/** Initiates the Eight Queens problem. */
-	void doEightQueens();
+private:
+	/*Function to add queen to 2D array.
+	Precondition: None
+	Postcondition: Queen is placed in array if true is returned, otherwise data
+				   has not changed.
+	Returns: True if addition was successful, false if not.
+	Parameter: index1 - row for queen to be placed in 2D array.
+	Parameter: index2 - column for queen to be placed in 2D array. */
+	bool addQueen(int index1, int index2);
 
-	/** @return The number of queens on the board. */
-	int getNumQueens() const;
+	/*Function to remove queen in 2D array.
+	Precondition: None
+	Postcondition: Queen is removed from array if true is returned, otherwise data
+				   has not changed.
+	Returns: True if removal was successful, false if not.
+	Parameter: index1 - row for queen to be removed from 2D array.
+	Parameter: index2 - column for queen to be removed from 2D array. */
+	bool removeQueen(int index1, int index2);
 
-	/** @return A pointer to the queen at the designated index. */
-	const Queen* getQueen(int index) const;
-}; // end Board
+	/* Function to create horizontal attack path of given queen.
+	Precondition: Given indexes point to a queen. 
+	Postcondition: attack path of given queen is created. 
+	Returns: True if attack path was created, or false if not. 
+	Parameter: index1 - row of given queen. 
+	Parameter: index2 - column of given queen. */
+	bool createHorizontalAttackPath(int index1, int index2);
 
-#include "ChessBoard.cpp"
-#endif _BOARD
+
+	/* Function to remove horizontal attack path of given queen.
+	Precondition: Given indexes point to a queen.
+	Postcondition: attack path of given queen is removed.
+	Returns: True if attack path was removed, or false if not.
+	Parameter: index1 - row of given queen.
+	Parameter: index2 - column of given queen. */
+	bool removeHorizontalAttackPath(int index1, int index2);
+
+	/* Function to create vertical attack path of given queen.
+	Precondition: Given indexes point to a queen.
+	Postcondition: attack path of given queen is created.
+	Returns: True if attack path was created, or false if not.
+	Parameter: index1 - row of given queen.
+	Parameter: index2 - column of given queen. */
+	bool createVerticalAttackPath(int index1, int index2);
+
+
+	/* Function to remove vertical attack path of given queen.
+	Precondition: Given indexes point to a queen.
+	Postcondition: attack path of given queen is removed.
+	Returns: True if attack path was removed, or false if not.
+	Parameter: index1 - row of given queen.
+	Parameter: index2 - column of given queen. */
+	bool removeVerticalAttackPath(int index1, int index2);
+
+	/* Function to create diagonal attack path of given queen.
+	Precondition: Given indexes point to a queen.
+	Postcondition: attack path of given queen is created.
+	Returns: True if attack path was created, or false if not.
+	Parameter: index1 - row of given queen.
+	Parameter: index2 - column of given queen. */
+	bool createDiagonalAttackPath(int index1, int index2);
+
+
+	/* Function to remove diagonal attack path of given queen.
+	Precondition: Given indexes point to a queen.
+	Postcondition: attack path of given queen is removed.
+	Returns: True if attack path was removed, or false if not.
+	Parameter: index1 - row of given queen.
+	Parameter: index2 - column of given queen. */
+	bool removeDiagonalAttackPath(int index1, int index2);
+
+	// declarations
+	string **mparrstrChessBoard; // 2D array that mimics the size of a ChessBoard.
+	int miNumberOfQueens; // keeps track of number of queens on the Chessboard.
+};
