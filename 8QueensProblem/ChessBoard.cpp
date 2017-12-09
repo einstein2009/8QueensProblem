@@ -77,44 +77,201 @@ bool ChessBoard::isQueen(int inRow, int inCol) const
 	return (queens[inRow, inCol] != nullptr);
 }
 
-bool ChessBoard::placeQueens(Queen* queenPtr)
+void ChessBoard::placeEightQueens()
 {
-	// Base case: Try to place a queen in a nonexistent column.
-	if (queenPtr->getCol() >= BOARD_SIZE)
+	int iRow;
+	int iQueen1Column, iQueen2Column, iQueen3Column,
+		iQueen4Column, iQueen5Column, iQueen6Column, iQueen7Column;
+	do
 	{
-		delete queenPtr;
-		return true;
-	}  // end if
+		bool bQueenPlaced = false;
 
-	bool isQueenPlaced = false;
-	while (!isQueenPlaced && queenPtr->getRow() < BOARD_SIZE)
-	{
-		// If the queen can be attacked, try moving it
-		// to the next row in the current column
-		if (queenPtr->isUnderAttack())
-			queenPtr->nextRow();
-		else
+		switch (miNumberOfQueens)
 		{
-			// Put this queen on the board and try putting a
-			// new queen in the first row of the next column
-			setQueen(queenPtr);
-			Queen* newQueenPtr = new Queen(0, queenPtr->getCol() + 1);
-			isQueenPlaced = placeQueens(newQueenPtr);
+		case 0:
+		{
+			iRow = 0;
 
-			// If it wasn't possible to put the new queen in the next column,
-			// backtrack by deleting the new queen and moving the last
-			// queen placed down one row
-			if (!isQueenPlaced)
+			// for each column check if a queen can be added
+			for (int iColumn = 0; iColumn < 8; iColumn++)
 			{
-				delete newQueenPtr;
-				removeQueen();
-				queenPtr->nextRow();
-			}  // end if
-		}  // end if
-	}  // end while
+				bQueenPlaced = addQueen(iRow, iColumn);
 
-	return isQueenPlaced;
-}  // end placeQueens
+				// if queen is added save the column value of the queen
+				if (bQueenPlaced)
+					iQueen1Column = iColumn;
+			}
+			break;
+		}
+		case 1:
+		{
+			iRow = 1;
+
+			// for each column check if a queen can be added
+			for (int iColumn = 0; iColumn < 8; iColumn++)
+			{
+				bQueenPlaced = addQueen(iRow, iColumn);
+
+				// if queen is added save the column value of the queen
+				// and terminate loop
+				if (bQueenPlaced)
+				{
+					iQueen2Column = iColumn;
+					iColumn = 8;
+				}
+			}
+
+			//if Queen cannot be placed, remove last queen placed
+			if (!bQueenPlaced)
+				removeQueen(iRow, iQueen1Column);
+
+			break;
+		}
+		case 2:
+		{
+			iRow = 2;
+
+			// for each column check if a queen can be added
+			for (int iColumn = 0; iColumn < 8; iColumn++)
+			{
+				bQueenPlaced = addQueen(iRow, iColumn);
+
+				// if queen is added save the column value of the queen
+				// and terminate loop
+				if (bQueenPlaced)
+				{
+					iQueen3Column = iColumn;
+					iColumn = 8;
+				}
+			}
+
+			//if Queen cannot be placed, remove last queen placed
+			if (!bQueenPlaced)
+				removeQueen(iRow, iQueen2Column);
+
+			break;
+		}
+		case 3:
+		{
+			iRow = 3;
+
+			// for each column check if a queen can be added
+			for (int iColumn = 0; iColumn < 8; iColumn++)
+			{
+				bQueenPlaced = addQueen(iRow, iColumn);
+
+				// if queen is added save the column value of the queen
+				// and terminate loop
+				if (bQueenPlaced)
+				{
+					iQueen4Column = iColumn;
+					iColumn = 8;
+				}
+			}
+
+			//if Queen cannot be placed, remove last queen placed
+			if (!bQueenPlaced)
+				removeQueen(iRow, iQueen3Column);
+
+			break;
+		}
+		case 4:
+		{
+			iRow = 4;
+
+			// for each column check if a queen can be added
+			for (int iColumn = 0; iColumn < 8; iColumn++)
+			{
+				bQueenPlaced = addQueen(iRow, iColumn);
+
+				// if queen is added save the column value of the queen
+				// and terminate loop
+				if (bQueenPlaced)
+				{
+					iQueen5Column = iColumn;
+					iColumn = 8;
+				}
+			}
+
+			//if Queen cannot be placed, remove last queen placed
+			if (!bQueenPlaced)
+				removeQueen(iRow, iQueen4Column);
+
+			break;
+		}
+		case 5:
+		{
+			iRow = 5;
+
+			// for each column check if a queen can be added
+			for (int iColumn = 0; iColumn < 8; iColumn++)
+			{
+				bQueenPlaced = addQueen(iRow, iColumn);
+
+				// if queen is added save the column value of the queen
+				// and terminate loop
+				if (bQueenPlaced)
+				{
+					iQueen6Column = iColumn;
+					iColumn = 8;
+				}
+			}
+
+			//if Queen cannot be placed, remove last queen placed
+			if (!bQueenPlaced)
+				removeQueen(iRow, iQueen5Column);
+
+			break;
+		}
+		case 6:
+		{
+			iRow = 6;
+
+			// for each column check if a queen can be added
+			for (int iColumn = 0; iColumn < 8; iColumn++)
+			{
+				bQueenPlaced = addQueen(iRow, iColumn);
+
+				// if queen is added save the column value of the queen
+				// and terminate loop
+				if (bQueenPlaced)
+				{
+					iQueen7Column = iColumn;
+					iColumn = 8;
+				}
+			}
+
+			//if Queen cannot be placed, remove last queen placed
+			if (!bQueenPlaced)
+				removeQueen(iRow, iQueen6Column);
+
+			break;
+		}
+		case 7:
+		{
+			iRow = 7;
+
+			// for each column check if a queen can be added
+			for (int iColumn = 0; iColumn < 8; iColumn++)
+			{
+				bQueenPlaced = addQueen(iRow, iColumn);
+
+				// if queen is added, terminate loop
+				if (bQueenPlaced)
+					iColumn = 8;
+			}
+
+			//if Queen cannot be placed, remove last queen placed
+			if (!bQueenPlaced)
+				removeQueen(iRow, iQueen7Column);
+
+			break;
+		}
+		default:
+			break;
+		}
+	} while (miNumberOfQueens != 8);
+}
 
 void ChessBoard::removeQueen()
 {
